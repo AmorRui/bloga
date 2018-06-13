@@ -1,0 +1,136 @@
+@charset "utf-8";
+/*==========rest css===========*/
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+body {
+  color: #333;
+  font: 16px/1.5 tahoma, arial, "\5b8b\4f53";
+}
+ul {
+  list-style: none;
+}
+a {
+  color: #333;
+  text-decoration: none;
+}
+a:hover {
+  color: #337492;
+  text-decoration: none;
+}
+input[type="text"],
+input[type="search"],
+input[type="email"],
+input[type="url"],
+input[type="pasword"],
+textarea {
+  border: none;
+  outline: none;
+  resize: none;
+}
+/*==========common css===========*/
+.f_l {
+  float: left;
+}
+.f_r {
+  float: right;
+}
+.clearfix::before,
+.clearfix::after {
+  content: "";
+  display: block;
+  visibility: hidden;
+  height: 0;
+  line-height: 0;
+  clear: both;
+}
+/*版心*/
+.topbar {
+  width: 100%;
+  height: 600px;
+}
+.topbar > img {
+  width: 100%;
+  height: 600px;
+}
+.topbar .row {
+  position: absolute;
+  top: 50%;
+  height: 200px;
+  margin-top: 100px;
+  left: 50%;
+  margin-left: -300px;
+}
+.topbar .row > a {
+  width: 300px;
+  float: left;
+  font-size: 30px;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 20px;
+  margin: 30px;
+}
+.nav {
+  width: 100%;
+  height: 80px;
+  line-height: 80px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 30px;
+  -moz-box-shadow: 0 0 10px #337492;
+  -webkit-box-shadow: 0 0 10px #337492;
+  box-shadow: 0 0 10px #337492;
+}
+.titlist .container .row .tit_con {
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 10px 1px #ececec;
+  margin: 30px;
+  position: relative;
+}
+.titlist .container .row .tit_con > h3 {
+  margin-left: 50px;
+  color: #337492;
+}
+.titlist .container .row .tit_con > h3 > span {
+  color: #333;
+}
+.titlist .container .row .tit_con .btn {
+  position: absolute;
+  right: 20px;
+  bottom: 30px;
+}
+
+.titlist .container .row .tit_con:hover {
+  box-shadow: 0 0 10px 1px #337492;
+}
+.titlist .container .row .list {
+  position: absolute;
+  right:30px;;
+}
+.titlist .container .row .list .about .icon > a {
+  border-radius: 20%;
+  padding: 10px;
+  margin: 10px;
+  color: #337492;
+  background-color: #c0d4dd;
+}
+.titlist .container .row .list .about .icon > a:hover {
+  color: #c0d4dd;
+  background-color: #337492;
+}
+.titlist .container .row .list .about > img {
+  width: 200px;
+  height: 200px;
+  border-radius: 20px;
+}
+.titlist .container .row .list .about > a > span {
+  font-size: 40px;
+  padding-right: 20px;
+}

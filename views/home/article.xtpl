@@ -1,0 +1,60 @@
+{{extend ('./layout.xtpl')}} {{#block ("css")}}
+<link rel="stylesheet" href="home/less/article.css">  {{/block}}
+
+<body>
+ {{#block ("content")}}
+
+  <section class="titlist clearfix">
+    <div class="container clearfix">
+      <div class="row">
+        <div class="main col-xs-9">
+          <div class="article">
+            <h2 class="title">{{post.title}}</h2>
+            {{{post.content}}}
+          </div>
+
+          <br/>
+          <br/>
+          <hr/>
+          <!-- 作者 -->
+          <div class="author">
+
+            <div class="wrap-box">
+              <!-- 个人资料 -->
+              <div class="meta">
+                <h4 class="name">
+                {{post.name}}
+                </h4>
+                <p class="intro">念念不忘，必有回响！</p>
+              
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="list col-md-3 hidden-sm hidden-xs ">
+          <div class=" about ">
+            <h1>About ME</h1>
+            <img src="/home//img/h.jpg " alt=" ">
+            <p>
+              <br> 和你想的不一样的叫生活
+              <br> 和你想的一样的叫童话
+              <br> 沉溺在我的代码世界中不可自拔
+            </p>
+            <div class="icon ">
+              <a target="_blank " href="http://weibo.com/SunnyAmor ">
+                weibo
+              </a>
+              <a target="_blank " href="https://github.com/AmorRui ">
+                gitHub
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {{/block}}
+
+</body>
+
+</html>

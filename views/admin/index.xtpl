@@ -1,0 +1,91 @@
+{{extend ('./layout.xtpl')}} {{#block("css")}}
+<link rel="stylesheet" href="/admin/css/index.css"> {{/block}} 
+{{#block("content")}} 
+<div class="body blog">
+  <!-- 面包屑 -->
+  <ol class="breadcrumb">
+      <li><a href="javascript:;">文章管理</a></li>
+      <li class="active">写文章</li>
+  </ol>
+  <div class="settings">
+      <form action="" class="form-horizontal">
+          {{#if (post.id)}}
+          <input type="hidden" name="id" value="{{post.id}}">
+          {{/if}}
+          <div class="form-group">
+              <label for="" class="col-xs-3 control-label" >标题</label>
+              <div class="col-xs-6">
+                  <input type="text" name="title" class="form-control input-sm" value="{{post.title}}" placeholder="请输入标题">
+              </div>
+          </div>
+          <div class="form-group">
+              <label for="" class="col-xs-3 control-label" >摘要</label>
+              <div class="col-xs-6 ckeditor">
+                  <textarea name="brief" rows="5" class="form-control input-sm" placeholder="请输入摘要">{{post.brief}}</textarea>
+              </div>
+          </div>
+          <div class="form-group">
+              <label for="" class="col-xs-3 control-label">是否发布</label>
+              <div class="col-xs-6">
+                  <div class="radio-inline">
+                      <input type="radio" name="status" {{#if (post.status === 1)}} checked {{/if}} value="1"> 是
+                  </div>
+                  <div class="radio-inline">
+                      <input type="radio" name="status" {{#if (post.status === 0)}} checked {{/if}} value="0"> 否
+                  </div>
+              </div>
+          </div>
+          <div class="form-group">
+              <label for="" class="col-xs-3 control-label" >内容</label>
+              <div class="col-xs-6">
+                  <textarea name="content" id="ckeditor" class="form-control input-sm" placeholder="请输入内容">{{post.content}}</textarea>
+              </div>
+          </div>
+          <div class="form-group">
+              <div class="col-xs-9">
+                  <input type="submit" class="btn btn-success btn-sm pull-right" style="margin-left:20px" id="aUpdate" value="保 存">
+
+              </div>
+          </div>
+      </form>
+  </div>
+</div>
+{{/block}}
+{{#block('script')}}
+<script src="/admin/assets/ckeditor/ckeditor.js"></script>
+<script>
+      CKEDITOR.replace('ckeditor', {
+          toolbarGroups: [
+              { name: 'clipboard',   groups: [ 'clipboard', 'undo' ] },
+              { name: 'forms' },
+              { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
+              { name: 'paragraph',   groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ] },
+              { name: 'styles' },
+              { name: 'colors' }
+          ]
+      });
+      // 提交表单
+      $('form').on('submit',function () {
+          console.log("111")
+           // 获得编辑器中的内容
+            for(var ins in CKEDITOR.instances) {
+                CKEDITOR.instances[ins].updateElement();
+            }
+          $.ajax({
+              url:'/admin/add',
+              type:'post',
+              data:$(this).serialize(),
+              success:function(info){
+                  alert(info.msg);
+                  if(info.code == 10000) {
+                       location.href = '/admin/list';
+                  }
+              }
+          })
+          return false;
+      })
+
+
+
+</script>
+{{/block}}

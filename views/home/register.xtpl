@@ -1,0 +1,40 @@
+{{extend ("./login+register.xtpl")}}
+
+{{#block ("eamil")}}
+<li>
+    <label for="">邮箱</label>
+    <input type="text" placeholder="请输入邮箱" name:"eamil">
+</li>
+{{/block}}
+
+{{#block ("text")}}
+<li>
+    <label for="">确认密码</label>
+    <input type="password" placeholder="请再次输入密码">
+</li>
+<li>
+    <input class="btn" type="submit" value="注 册">
+    <button class="btn"><a href="/login">登陆</a></button>
+</li>
+
+{{/block}}
+{{#block("script")}}
+<script>
+    $('form').on('submit',function () {
+       $.ajax({
+           url:'/register',
+           type:'post',
+           data:$(this).serialize(),
+           success: function(info) {
+               console.log(info)
+               if(info.code == 10000) {
+                   alert(info.msg);
+                   location.href = '/login';
+               }
+           }
+       })
+       // 阻止表单默认提交
+       return false;
+   })
+</script>
+{{/block}}

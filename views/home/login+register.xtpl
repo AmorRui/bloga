@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel='icon' href='./img/bitbug_favicon.ico ' type='image/x-ico' />
+  <title>blog</title>
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="/home/assets/bootstrap/css/bootstrap.min.css">
+  <!-- css    -   style -->
+  <link rel="stylesheet" href="/home/less/register.css">
+  <!-- jquery -->
+  <script src="/home/assets/jquery/jquery.min.js"></script>
+  <!-- bootstrap -->
+  <script src="/home/assets/bootstrap/js/bootstrap.min.js"></script>
+  <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 aForm">
+        <form action="">
+          <ul>
+            <li>
+              <img src="/home/img/h.jpg" alt="">
+            </li>
+            <li>
+              <label for="">用户名:</label>
+              <input type="text" name="name"  placeholder="请输入用户名" >
+            </li>
+             {{{block("eamil")}}}
+            <li>
+              <label for="">密　码:</label>
+              <input type="password" name="pass"  placeholder="请输入密码" >
+            </li>
+              {{{block("text")}}}
+          </ul>
+        </form>
+      </div>      
+    </div>
+    {{{block('script')}}}
+</body>
+
+</html>

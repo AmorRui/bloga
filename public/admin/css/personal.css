@@ -1,0 +1,9 @@
+.form-horizontal .form-group .preview {
+  width: 40px;
+  height: 200px;
+}
+.form-horizontal .form-group .preview img {
+  width: 1000%;
+  margin:30px;
+  border-radius: 50%;
+}

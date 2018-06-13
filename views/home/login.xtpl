@@ -1,0 +1,28 @@
+{{extend ("./login+register.xtpl")}}
+
+
+{{#block ("text")}}
+<li>
+    <input class="btn" type="submit" value="登陆">
+    <button class="btn"><a href="/register">注册</a></button>
+</li>
+{{/block}}
+
+{{#block ("script")}}
+    <script>
+        $('form').on('submit',function () {
+            
+            $.ajax({
+                url:'/login',
+                type:"post",
+                data:$(this).serialize(),
+                success:function(info){
+                    alert(info.msg);
+                    if(info.code == 10000 ){
+                     location.href = '/admin';
+                    }
+                }
+            })
+        })
+    </script>
+{{/block}}

@@ -1,0 +1,85 @@
+@charset "utf-8";
+/*==========rest css===========*/
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+body {
+  min-width: 750px;
+  color: #333;
+  font: 16px/1.5 tahoma, arial, "\5b8b\4f53";
+  background-color: #ececec;
+}
+ul {
+  list-style: none;
+}
+a {
+  color: #333;
+  text-decoration: none;
+}
+a:hover {
+  color: #337492;
+  text-decoration: none;
+}
+input[type="text"],
+input[type="search"],
+input[type="email"],
+input[type="url"],
+input[type="pasword"],
+textarea {
+  border: none;
+  outline: none;
+  resize: none;
+}
+/*==========common css===========*/
+.clearfix::before,
+.clearfix::after {
+  content: "";
+  display: block;
+  visibility: hidden;
+  height: 0;
+  line-height: 0;
+  clear: both;
+}
+/*版心*/
+
+.nav {
+  margin-left:3px;
+  height: 80px;
+  line-height: 80px;
+  text-align: center;
+  font-size: 20px;
+  width: 100%;
+  font-size: 16px;
+}
+
+.main {
+  border-left:1px #337492 solid; 
+}
+.aside {
+  height: 100%;
+  margin:0 auto;
+}
+.aside .profile .img-circle{
+  width: 100%;
+  height: 100%;
+}
+.aside .profile .img-circle img {
+  width: 80%;
+  border-radius: 50%;
+  margin:10px;
+}
+.aside .profile h4 {
+  text-align: center;
+}
+.aside .navs .list-unstyled a {
+  display: block;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+}
+

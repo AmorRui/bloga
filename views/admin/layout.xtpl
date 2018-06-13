@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>blog 后台</title>
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="/admin/assets/bootstrap/css/bootstrap.min.css">
+    <!-- css    -   style -->
+    <link rel="stylesheet" href="/admin/css/layout.css"> {{{ block ("css")}}}
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-2  hidden-sm hidden-xs">
+                <div class="aside">
+                    <div class="profile">
+                        <div class="avatar img-circle">
+                            {{#if(profile.avatar)}}
+                            <img src="/{{profile.avatar}}">
+                            {{else}}
+                            <img src="/admin/img/h.jpg">
+                            {{/if}}
+                        </div>
+                        <h4>{{profile.name}}</h4>
+                    </div>
+                    <div class="navs">
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="/admin/add">
+                                    写文章
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/admin/list">
+                                    我的文章
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-9 main ">
+                <div class="nav row">
+                    <div class="col-xs-8">
+                    </div>
+                    <div class="col-xs-2">
+                        <a href="/admin/personal">Personal</a>
+                    </div>
+                    <div class="col-xs-2">
+                        <a href="javescript:;" class="logout">Quit</a>
+                    </div>
+                </div>
+                <div class="content">
+                    {{{block("content")}}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- jquery -->
+    <script src="/admin/assets/jquery/jquery.min.js"></script>
+    <!-- bootstrap -->
+    <script src="/admin/assets/bootstrap/js/bootstrap.min.js"></script>
+    {{{block ('script')}}}
+    <script>
+        $('.logout').on('click', function () {
+            $.ajax({
+                url: '/logout',
+                type: 'get',
+                success: function (info) {
+                    console.log(info);
+                    if (info.code == 10000) {
+                        alert("退出登陆");
+                        location.href = '/';
+                    }
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>
